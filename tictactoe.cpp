@@ -50,10 +50,15 @@ TicTacToe::TicTacToe(std::string code)
 
 TicTacToe::TicTacToe(TicTacToe &other)
 {
+	this->fields = new TicTacToeField *[3];
+
 	for (short i = 0; i < 3; i++)
 	{
+		this->fields[i] = new TicTacToeField[3];
+
 		for (short j = 0; j < 3; j++)
 		{
+
 			this->fields[i][j] = other.fields[i][j];
 		}
 	}
@@ -229,7 +234,7 @@ std::vector<TicTacToe *> TicTacToe::AllLegalMoves()
 	{
 		turn = TicTacToeTurn::O;
 	}
-	else if (oNum == xNum - 1)
+	else if (oNum == xNum + 1)
 	{
 		turn = TicTacToeTurn::X;
 	}

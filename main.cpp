@@ -29,5 +29,12 @@ int main()
 		break;
 	}
 
+	std::vector<TicTacToe *> possibleBoards = board->AllLegalMoves();
+
+	for (int i = 0; i < possibleBoards.size(); i++)
+	{
+		possibleBoards[i]->Print();
+	}
+
 	return 0;
 }
