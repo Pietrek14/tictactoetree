@@ -34,6 +34,7 @@ public:
 	TicTacToe();
 	TicTacToe(std::string code);
 	TicTacToe(TicTacToe &other);
+	TicTacToe(TicTacToe *other);
 
 	void Print();
 

@@ -33,7 +33,9 @@ int main()
 
 	for (int i = 0; i < possibleBoards.size(); i++)
 	{
+		std::cout << std::endl;
 		possibleBoards[i]->Print();
+		std::cout << std::endl;
 	}
 
 	return 0;

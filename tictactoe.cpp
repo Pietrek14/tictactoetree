@@ -64,6 +64,22 @@ TicTacToe::TicTacToe(TicTacToe &other)
 	}
 }
 
+TicTacToe::TicTacToe(TicTacToe *other)
+{
+	this->fields = new TicTacToeField *[3];
+
+	for (short i = 0; i < 3; i++)
+	{
+		this->fields[i] = new TicTacToeField[3];
+
+		for (short j = 0; j < 3; j++)
+		{
+
+			this->fields[i][j] = other->fields[i][j];
+		}
+	}
+}
+
 void TicTacToe::Print()
 {
 	for (int i = 0; i < 3; i++)
@@ -248,13 +264,14 @@ std::vector<TicTacToe *> TicTacToe::AllLegalMoves()
 	{
 		for (short j = 0; j < 3; j++)
 		{
+
 			if (this->fields[i][j] == TicTacToeField::EMPTY)
 			{
-				TicTacToe possibleBoard = *this;
+				TicTacToe *possibleBoard = new TicTacToe(this);
 
-				possibleBoard.fields[i][j] = (TicTacToeField)turn;
+				possibleBoard->fields[i][j] = (TicTacToeField)turn;
 
-				possibleBoards.push_back(&possibleBoard);
+				possibleBoards.push_back(possibleBoard);
 			}
 		}
 	}
