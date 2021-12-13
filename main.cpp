@@ -82,6 +82,7 @@ Node *fastestVictory(Node *root)
 int main()
 {
 	std::cout << "Input the board code:" << std::endl;
+	// Example code: "OX  OO  X"
 
 	std::string code;
 	std::getline(std::cin, code);
@@ -96,80 +97,9 @@ int main()
 
 	TicTacToe *board = new TicTacToe(code);
 
-	// for (short i = 0; i < 3; i++)
-	// {
-	// 	for (short j = 0; j < 3; j++)
-	// 	{
-	// 		char fieldInput = std::cin.get();
-
-	// 		if (std::cin.fail())
-	// 		{
-	// 			std::cout << "Incorrect input!" << std::endl;
-	// 			return 1;
-	// 		}
-
-	// 		TicTacToeField field;
-
-	// 		switch (fieldInput)
-	// 		{
-	// 		case 'O':
-	// 			field = TicTacToeField::O;
-	// 			break;
-
-	// 		case 'X':
-	// 			field = TicTacToeField::X;
-	// 			break;
-
-	// 		case ' ':
-	// 			field = TicTacToeField::EMPTY;
-	// 			break;
-
-	// 		default:
-	// 			std::cout << "Incorrect symbol!" << std::endl;
-	// 			return 1;
-	// 		}
-
-	// 		board->SetField(i, j, field);
-	// 	}
-	// }
-
-	// std::cout
-	// << std::endl
-	// << std::endl;
-
-	// TicTacToe *board = new TicTacToe("OX  OO  X");
-
 	Node *root = new Node(board);
 
 	board->Print();
-
-	// switch (board->GetResult())
-	// {
-	// case TicTacToeResult::IN_PROGRESS:
-	// 	std::cout << "Game in progress!" << std::endl;
-	// 	break;
-
-	// case TicTacToeResult::DRAW:
-	// 	std::cout << "Draw!" << std::endl;
-	// 	break;
-
-	// case TicTacToeResult::O_WINS:
-	// 	std::cout << "O wins!" << std::endl;
-	// 	break;
-
-	// case TicTacToeResult::X_WINS:
-	// 	std::cout << "X wins!" << std::endl;
-	// 	break;
-	// }
-
-	// std::vector<TicTacToe *> possibleBoards = board->AllLegalMoves();
-
-	// for (int i = 0; i < possibleBoards.size(); i++)
-	// {
-	// 	std::cout << std::endl;
-	// 	possibleBoards[i]->Print();
-	// 	std::cout << std::endl;
-	// }
 
 	Node *fastestWin = fastestVictory(root);
 
