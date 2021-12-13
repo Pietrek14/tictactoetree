@@ -80,6 +80,10 @@ TicTacToe::TicTacToe(TicTacToe *other)
 	}
 }
 
+void TicTacToe::SetField(int x, int y, TicTacToeField field) {
+	this->fields[x][y] = field;
+}
+
 void TicTacToe::Print()
 {
 	for (int i = 0; i < 3; i++)

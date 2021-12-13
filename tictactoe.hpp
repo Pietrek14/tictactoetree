@@ -36,6 +36,8 @@ public:
 	TicTacToe(TicTacToe &other);
 	TicTacToe(TicTacToe *other);
 
+	void SetField(int x, int y, TicTacToeField field);
+
 	void Print();
 
 	TicTacToeResult GetResult();
