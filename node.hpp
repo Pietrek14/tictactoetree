@@ -8,7 +8,7 @@ class Node
 
 	Node **children;
 	int childrenCount = 0;
-	Node *parent;
+	Node *parent = nullptr;
 
 public:
 	Node(void *data);
@@ -18,4 +18,6 @@ public:
 
 	void AddChild(Node *child);
 	Node **GetChildren();
+	int GetChildrenCount();
+	Node* GetParent();
 };

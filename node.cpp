@@ -21,5 +21,15 @@ void Node::AddChild(Node *child)
 
 Node **Node::GetChildren()
 {
-	return children;
+	return this->children;
+}
+
+int Node::GetChildrenCount()
+{
+	return this->childrenCount;
+}
+
+Node *Node::GetParent()
+{
+	return this->parent;
 }
