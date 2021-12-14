@@ -81,21 +81,44 @@ Node *fastestVictory(Node *root)
 
 int main()
 {
-	std::cout << "Input the board code:" << std::endl;
+	std::cout << "Input the board:" << std::endl;
 	// Example code: "OX  OO  X"
 
-	std::string code;
-	std::getline(std::cin, code);
+	TicTacToe *board = new TicTacToe();
 
-	if (code.length() != 9)
+	for (short i = 0; i < 3; i++)
 	{
-		std::cout << "Incorrect code!" << std::endl;
-		return 1;
+		for (short j = 0; j < 3; j++)
+		{
+			board->PrintSelection(i, j);
+
+			std::cout << "Input the field (\"_\" for an empty field): ";
+
+			char symbol;
+			std::cin >> symbol;
+
+			switch (symbol)
+			{
+			case 'O':
+				board->SetField(i, j, TicTacToeField::O);
+				break;
+
+			case 'X':
+				board->SetField(i, j, TicTacToeField::X);
+				break;
+
+			case '_':
+				board->SetField(i, j, TicTacToeField::EMPTY);
+				break;
+
+			default:
+				std::cout << "Invalid symbol!" << std::endl;
+				return 1;
+			}
+		}
 	}
 
-	std::cout << std::endl;
-
-	TicTacToe *board = new TicTacToe(code);
+	std::cout << "Thanks for your input!" << std::endl;
 
 	Node *root = new Node(board);
 

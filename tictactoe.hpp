@@ -39,6 +39,7 @@ public:
 	void SetField(int x, int y, TicTacToeField field);
 
 	void Print();
+	void PrintSelection(int selectedX, int selectedY);
 
 	TicTacToeResult GetResult();
 	std::vector<TicTacToe *> AllLegalMoves();

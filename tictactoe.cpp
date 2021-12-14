@@ -80,7 +80,8 @@ TicTacToe::TicTacToe(TicTacToe *other)
 	}
 }
 
-void TicTacToe::SetField(int x, int y, TicTacToeField field) {
+void TicTacToe::SetField(int x, int y, TicTacToeField field)
+{
 	this->fields[x][y] = field;
 }
 
@@ -105,6 +106,52 @@ void TicTacToe::Print()
 			case TicTacToeField::O:
 				std::cout << 'O';
 				break;
+			}
+
+			std::cout << " ";
+
+			if (j < 2)
+				std::cout << '|';
+		}
+
+		if (i < 2)
+			std::cout
+				<< std::endl
+				<< "-----------"
+				<< std::endl;
+	}
+
+	std::cout << std::endl;
+}
+
+void TicTacToe::PrintSelection(int selectedX, int selectedY)
+{
+	for (int i = 0; i < 3; i++)
+	{
+		for (int j = 0; j < 3; j++)
+		{
+			std::cout << " ";
+
+			if (i == selectedX && j == selectedY)
+			{
+				std::cout << "_";
+			}
+			else
+			{
+				switch (this->fields[i][j])
+				{
+				case TicTacToeField::EMPTY:
+					std::cout << ' ';
+					break;
+
+				case TicTacToeField::X:
+					std::cout << 'X';
+					break;
+
+				case TicTacToeField::O:
+					std::cout << 'O';
+					break;
+				}
 			}
 
 			std::cout << " ";
