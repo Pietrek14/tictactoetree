@@ -42,5 +42,6 @@ public:
 	void PrintSelection(int selectedX, int selectedY);
 
 	TicTacToeResult GetResult();
+	bool IsValid();
 	std::vector<TicTacToe *> AllLegalMoves();
 };

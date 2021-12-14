@@ -264,7 +264,37 @@ TicTacToeResult TicTacToe::GetResult()
 }
 
 /**
- * @brief Returns all possible combinations of the board after any legal moves.
+ * @brief Simple check for board validity. It may not work in some cases.
+ * 
+ * @return true 
+ * @return false 
+ */
+bool TicTacToe::IsValid()
+{
+	int oNum = 0, xNum = 0;
+
+	for (short i = 0; i < 3; i++)
+	{
+		for (short j = 0; j < 3; j++)
+		{
+			switch (this->fields[i][j])
+			{
+			case TicTacToeField::O:
+				oNum++;
+				break;
+
+			case TicTacToeField::X:
+				xNum++;
+				break;
+			}
+		}
+	}
+
+	return (oNum == xNum) || (oNum == xNum + 1);
+}
+
+/**
+ * @brief Returns all possible combinations of the board after any legal move.
  * 
  * @return std::vector<TicTacToe *>
  */

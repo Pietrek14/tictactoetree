@@ -118,17 +118,34 @@ int main()
 		}
 	}
 
-	std::cout << "Thanks for your input!" << std::endl;
+	std::cout
+		<< "Thanks for your input!"
+		<< std::endl
+		<< std::endl;
 
 	Node *root = new Node(board);
 
 	board->Print();
 
+	if (!board->IsValid())
+	{
+		std::cout << "This position is invalid!" << std::endl;
+
+		return 0;
+	}
+
+	if (board->GetResult() != TicTacToeResult::IN_PROGRESS)
+	{
+		std::cout << "This game has already ended!" << std::endl;
+
+		return 0;
+	}
+
 	Node *fastestWin = fastestVictory(root);
 
 	if (fastestWin == nullptr)
 	{
-		std::cout << "Ta pozycja zawsze prowadzi do remisu!" << std::endl;
+		std::cout << "This position always ends in a draw!" << std::endl;
 
 		return 0;
 	}
